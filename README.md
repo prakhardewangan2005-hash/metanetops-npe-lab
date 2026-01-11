@@ -1,33 +1,58 @@
-# NetPulse — Network Production Engineering Reliability Lab (Meta-style)
+# MetaNetOps — Network Production Engineering (NPE) Reliability Lab
 
-Docs-first portfolio lab for **Network Production Engineering (NPE)**:
-runbooks, postmortems, monitoring signals, and automation notes for large-scale
-datacenter + backbone networks.
+Docs-first portfolio lab aligned with **Meta Network Production Engineer (Intern)** responsibilities: operating large-scale backbone/datacenter networks, building monitoring & automation, and running incident response with strong reliability habits.
 
-## Why this exists
-Meta-scale networks fail in *interesting* ways (loss, latency, BGP churn, link saturation).
-This repo focuses on **reliability, operational excellence, and safe automation**.
+---
 
-## Focus areas (aligned with NPE Intern JD)
-- **Incident response:** latency / packet loss / drops
-- **Failure modes:** DNS, BGP/ISIS, link saturation, flaky optics
-- **Monitoring:** golden signals, SLO thinking, alert tuning
-- **Automation:** repeatable checks + safe mitigations (guardrails, rollback)
-- **Runbooks & postmortems:** detection → triage → mitigation → validation
+## What this repo demonstrates (JD mapping)
 
-## Repository map
-- `runbooks/` — incident runbooks (step-by-step)
-- `postmortems/` — postmortem templates + examples
-- `monitoring/` — dashboards/alerts and signal definitions
-- `automation/` — scripts, tooling, and checklists (WIP)
-- `backbone/` — backbone-specific notes (BGP/ISIS, peering, capacity)
-- `datacenter/` — DC fabrics, ToR/leaf-spine, failure scenarios
+- **Multi-vendor / multi-protocol operations** → runbooks + checklists for common failures  
+- **Monitoring & alerting** → signal taxonomy, SLO/SLA thinking, dashboards, alert rules  
+- **Automation & continuous improvement** → scripts + “toil → automate” playbooks  
+- **Routing fundamentals (BGP / ISIS)** → failure scenarios, triage, safe mitigation paths  
+- **UNIX + TCP/IP fundamentals** → debugging workflow: `mtr`, `traceroute`, `tcpdump`, `iperf`
+
+---
+
+## Repository structure
+
+- [`runbooks/`](./runbooks) — Incident runbooks (detect → triage → mitigate → validate → rollback)
+- [`postmortems/`](./postmortems) — Blameless postmortems + action-item tracking templates
+- [`monitoring/`](./monitoring) — Signals, SLIs/SLOs, alerting rules, dashboards (docs-first)
+- [`automation/`](./automation) — Scripts and automation notes (toil reduction, safe deploy)
+- [`backbone/`](./backbone) — Backbone scenarios: routing, capacity, failure domains
+- [`datacenter/`](./datacenter) — DC scenarios: link/ToR, ECMP, congestion, optics
+
+---
 
 ## Status
-🚧 Initial scaffolding — continuously evolving with new scenarios + tooling.
 
-## Quick credibility checklist (what I’m adding next)
-- 3 incident scenarios + timelines
-- 2 runbooks with “verify/rollback” steps
-- 1 monitoring dashboard spec + alerts
-- 1 automation script (health checks) + safe execution notes
+✅ Scaffolding complete  
+🔜 Adding first runbook + first postmortem + monitoring baseline
+
+---
+
+## “Signals I care about” (starter set)
+
+- **Latency** (p50/p95/p99), **packet loss**, **drops**, **retransmits**
+- **Interface errors** (CRC, FCS), **flaps**, **BGP session churn**
+- **Queue / buffer** (microbursts), **link utilization**, **hotspots**
+- **Customer impact proxy**: failed requests, timeouts, degraded throughput
+
+---
+
+## How to use this repo (interviewer-friendly)
+
+Pick a scenario:
+1) Read the relevant **runbook**  
+2) Use the **postmortem template** to simulate an incident write-up  
+3) Review **monitoring** to see what would have detected it earlier  
+4) Check **automation** to reduce repeat toil
+
+---
+
+## Quick links
+
+- Runbooks → `runbooks/README.md`
+- Postmortems → `postmortems/README.md`
+- Monitoring → `monitoring/README.md`
