@@ -1,153 +1,141 @@
-# INC-001 — BGP Session Drop / Flap
-
-**Severity:** SEV-2 / SEV-3  
-**Owner:** Network Production Engineering (NPE)  
-**Scope:** Backbone / Datacenter / Edge  
-**Last updated:** 2026-01-11
+# BGP Session Flap / Neighbor Down Runbook
 
 ---
 
-## 1. Problem Statement
-
-BGP session(s) are dropping or rapidly flapping, causing route withdrawals and potential traffic loss, packet drops, or increased latency across one or more regions.
-
----
-
-## 2. Detection Signals
-
-### Alerts
+## 1. Incident Detection
+**Triggers**
 - BGP neighbor DOWN / FLAP alert
-- Route withdrawal spike
-- Increased packet loss / latency in affected POP or DC
+- Prefix drop
+- Packet loss / latency spike
+- Customer traffic impact
 
-### Dashboards
-- BGP session state
-- Prefix count over time
-- Interface errors / drops
-- Traffic volume anomalies
+**Signals**
+- Monitoring alerts
+- Traffic dashboards
+- User reports
+
+---
+
+## 2. Initial Assessment
+Identify:
+- Affected peer(s)
+- Affected POP / DC / Region
+- Time incident started
+- Control-plane vs data-plane symptoms
+
+Key questions:
+- Single peer or multiple peers?
+- Single region or global?
+- Planned change ongoing?
 
 ---
 
 ## 3. Immediate Triage (First 5 Minutes)
 
-### A. Check BGP neighbor state
-
-``bash
-# Vendor-specific commands vary; examples are conceptual
+### A. Check BGP Neighbor State
+```bash
 show bgp summary
 show bgp neighbor <PEER_IP>
+```
+
 Look for:
+- Idle / Active state loops
+- Hold timer expirations
+- BGP NOTIFICATION reasons
+- Rapid session flaps
 
-Idle / Active state loops
+---
 
-Hold timer expirations
+## 4. Scope the Failure
+Determine blast radius:
+- Which prefixes are withdrawn?
+- Is traffic failing in one POP / DC / Region?
+- Any correlated interface errors / CRC / drops?
+- Control-plane vs data-plane impact?
 
-BGP NOTIFICATION reasons
-
-Rapid session flaps
-
-B. Scope the Impact
-Which prefixes were withdrawn?
-
-Is traffic failing in one region / POP / DC?
-
-Any correlated interface errors or link flaps?
-
-Single peer vs multiple peers?
-
-4. Root Cause Isolation
-A. Control Plane Checks
-BGP NOTIFICATION codes (Cease, Hold Timer Expired)
-
-Route policy changes
-
-Max-prefix limit exceeded
-
-MTU mismatch
-
-B. Data Plane Checks
-bash
-Copy code
-ping <PEER_IP>
-traceroute <PEER_IP>
-Packet loss?
-
-Path changes?
-
-Increased RTT?
-
-C. Interface & Hardware Health
-bash
-Copy code
+```bash
+show bgp ipv4 unicast
 show interfaces counters errors
-show interfaces status
-Look for:
+```
 
-CRC errors
+---
 
-Link flaps
+## 5. Check Physical & Transport Layer
+Validate link health:
+- Interface up/down events
+- CRC / input errors
+- Optics alarms
+- Recent maintenance
 
-High utilization / congestion
+```bash
+show interfaces
+show interfaces transceiver
+```
 
-5. Mitigation Steps
-Option 1: Soft Reset (Preferred)
-bash
-Copy code
-clear bgp neighbor <PEER_IP> soft
-Option 2: Hard Reset (If stable alternative paths exist)
-bash
-Copy code
+---
+
+## 6. Mitigation
+Apply lowest-risk mitigation first:
+- Clear single BGP session (only if safe)
+- Disable problematic peer
+- Shift traffic via alternate paths
+- Roll back recent config change
+
+```bash
 clear bgp neighbor <PEER_IP>
-Option 3: Traffic Shift / Drain
-Shift traffic to backup peers
+```
 
-Reduce local preference on unstable path
+Escalate if:
+- Multiple peers impacted
+- Backbone / DC-wide failure
+- Customer-visible outage
 
-Apply temporary route dampening if required
+---
 
-6. Validation
-BGP session returns to Established
+## 7. Validation
+Confirm recovery:
+- BGP session stable ≥ 15 minutes
+- Prefix count restored
+- Packet loss / latency normalized
 
-Prefix count stable
+```bash
+show bgp summary
+ping <DESTINATION>
+traceroute <DESTINATION>
+```
 
-Traffic restored (check dashboards)
+---
 
-No further session flaps for ≥15 minutes
+## 8. Communication
+Update:
+- Incident channel
+- On-call handoff notes
+- Status page (if customer impact exists)
 
-7. Rollback (If Mitigation Fails)
-Revert recent config or policy changes
+Include:
+- Affected peers / regions
+- Current status
+- Mitigation applied
+- Next update time
 
-Restore previous route-maps
+---
 
-Escalate to backbone / vendor team if hardware suspected
+## 9. Post-Incident Actions
+File postmortem in `/postmortems`:
+- Root cause
+- Timeline
+- Detection gaps
+- Mitigation effectiveness
 
-8. Communication
-Notify incident channel with:
+Create follow-up tasks:
+- Capacity review
+- Policy validation
+- Automation guardrails
+- Alert tuning
 
-Affected peers / regions
+---
 
-Current status
-
-Mitigation applied
-
-Update status page if customer impact exists
-
-9. Post-Incident Actions
-File postmortem using /postmortems/PM-template.md
-
-Add alert improvements if detection was delayed
-
-Create follow-up task for:
-
-Capacity review
-
-Policy validation
-
-Automation guardrails
-
-10. References
-RFC 4271 — BGP-4
-
-Internal BGP Best Practices
-
-Vendor troubleshooting guides
+## 10. References
+- RFC 4271 — BGP-4
+- Internal BGP Best Practices
+- Vendor troubleshooting guides
