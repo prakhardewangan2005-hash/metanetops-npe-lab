@@ -6,9 +6,9 @@ used to demonstrate alerting and observability workflows.
 ---
 
 ## Grafana-style Alerts
-- Packet loss alert
-- BGP session down
-- Latency spike
+
+### Packet Loss Alert
+![Packet Loss Alert](./grafana/packet-loss-alert.png)
 
 ---
 
