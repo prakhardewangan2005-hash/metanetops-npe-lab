@@ -1,3 +1,7 @@
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Docs](https://img.shields.io/badge/Docs-Complete-blue.svg)
+![Network Ops](https://img.shields.io/badge/Domain-Network%20Operations-purple.svg)
+
 # MetaNetOps NPE Lab 🛰️
 Production-grade Network Operations & Reliability workflows inspired by
 real-world Network Production Engineer (NPE) environments.
