@@ -62,3 +62,26 @@ and postmortem culture** for large-scale networks.
 ## 📎 Disclaimer
 All incidents and data are simulated for learning purposes.
 This project is not affiliated with Meta or any other company.
+
+---
+
+## ✅ Working Proof (Runnable)
+
+This repository includes runnable workflows executed directly inside GitHub Codespaces.
+
+### Quick Smoke Test
+```bash
+make hello
+
+---
+
+## 🔧 Working Automation: Network Incident Triage
+
+This repository includes a runnable **incident triage script** that validates
+DNS, TCP connectivity, and HTTPS reachability from a containerized environment
+(GitHub Codespaces compatible).
+
+### Run
+```bash
+bash automation/net_triage.sh
+

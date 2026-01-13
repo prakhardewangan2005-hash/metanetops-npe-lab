@@ -1,0 +1,25 @@
+name: Network Triage (Codespaces-style)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run triage (expected PASS)
+        run: |
+          bash automation/net_triage.sh httpbin.org 443
+          cat triage_result.txt
+
+      - name: Run triage (expected FAIL - DNS)
+        run: |
+          bash automation/net_triage.sh does-not-exist-xyz-12345.invalid 443 || true
+          cat triage_result.txt
