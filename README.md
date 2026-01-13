@@ -1,58 +1,60 @@
-# MetaNetOps — Network Production Engineering (NPE) Reliability Lab
+# MetaNetOps NPE Lab 🛰️
+Production-grade Network Operations & Reliability workflows inspired by
+real-world Network Production Engineer (NPE) environments.
 
-Docs-first portfolio lab aligned with **Meta Network Production Engineer (Intern)** responsibilities: operating large-scale backbone/datacenter networks, building monitoring & automation, and running incident response with strong reliability habits.
-
----
-
-## What this repo demonstrates (JD mapping)
-
-- **Multi-vendor / multi-protocol operations** → runbooks + checklists for common failures  
-- **Monitoring & alerting** → signal taxonomy, SLO/SLA thinking, dashboards, alert rules  
-- **Automation & continuous improvement** → scripts + “toil → automate” playbooks  
-- **Routing fundamentals (BGP / ISIS)** → failure scenarios, triage, safe mitigation paths  
-- **UNIX + TCP/IP fundamentals** → debugging workflow: `mtr`, `traceroute`, `tcpdump`, `iperf`
+This repository demonstrates **incident response, automation, monitoring,
+and postmortem culture** for large-scale networks.
 
 ---
 
-## Repository structure
-
-- [`runbooks/`](./runbooks) — Incident runbooks (detect → triage → mitigate → validate → rollback)
-- [`postmortems/`](./postmortems) — Blameless postmortems + action-item tracking templates
-- [`monitoring/`](./monitoring) — Signals, SLIs/SLOs, alerting rules, dashboards (docs-first)
-- [`automation/`](./automation) — Scripts and automation notes (toil reduction, safe deploy)
-- [`backbone/`](./backbone) — Backbone scenarios: routing, capacity, failure domains
-- [`datacenter/`](./datacenter) — DC scenarios: link/ToR, ECMP, congestion, optics
+## 🔍 What This Repo Demonstrates
+- BGP incident troubleshooting & mitigation
+- Safe automation with guardrails
+- Monitoring & alerting design
+- Structured postmortems
+- Operational excellence mindset
 
 ---
 
-## Status
+## 📁 Repository Structure
 
-✅ Scaffolding complete  
-🔜 Adding first runbook + first postmortem + monitoring baseline
-
----
-
-## “Signals I care about” (starter set)
-
-- **Latency** (p50/p95/p99), **packet loss**, **drops**, **retransmits**
-- **Interface errors** (CRC, FCS), **flaps**, **BGP session churn**
-- **Queue / buffer** (microbursts), **link utilization**, **hotspots**
-- **Customer impact proxy**: failed requests, timeouts, degraded throughput
+| Folder | Description |
+|------|------------|
+| [`runbooks/`](./runbooks) | Step-by-step incident response guides |
+| [`automation/`](./automation) | Automated guardrails & response logic |
+| [`monitoring/`](./monitoring) | Metrics, alerts & dashboards |
+| [`postmortems/`](./postmortems) | Blameless incident reviews |
 
 ---
 
-## How to use this repo (interviewer-friendly)
+## 🚨 Incident Lifecycle (How Everything Connects)
 
-Pick a scenario:
-1) Read the relevant **runbook**  
-2) Use the **postmortem template** to simulate an incident write-up  
-3) Review **monitoring** to see what would have detected it earlier  
-4) Check **automation** to reduce repeat toil
+1. **Detection** → Monitoring alerts trigger
+2. **Triage** → Runbook followed by on-call
+3. **Mitigation** → Manual or automated action
+4. **Validation** → Stability & traffic recovery
+5. **Communication** → Status updates
+6. **Postmortem** → Root cause & follow-ups
 
 ---
 
-## Quick links
+## 🧠 Skills Demonstrated
+- BGP (RFC 4271) troubleshooting
+- Control-plane vs data-plane analysis
+- Automation safety & escalation design
+- Production monitoring strategy
+- Post-incident analysis
 
-- Runbooks → `runbooks/README.md`
-- Postmortems → `postmortems/README.md`
-- Monitoring → `monitoring/README.md`
+---
+
+## 📌 Intended Audience
+- Network Production Engineer
+- Network Reliability Engineer
+- SRE (Networking)
+- Infrastructure Operations
+
+---
+
+## 📎 Disclaimer
+All incidents and data are simulated for learning purposes.
+This project is not affiliated with Meta or any other company.
