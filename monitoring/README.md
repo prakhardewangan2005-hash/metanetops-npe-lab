@@ -1,9 +1,35 @@
 # Monitoring
 
-Monitoring notes + alert definitions for NPE.
+Monitoring provides early detection and context
+for network incidents before customer impact increases.
 
-Includes:
-- Golden signals (latency, loss, errors, saturation)
-- Alert rules (thresholds, windows)
-- Dashboards/queries
-- On-call checklists
+---
+
+## 📈 Monitoring Coverage
+
+### Control Plane
+- BGP session state
+- Flap frequency
+- Prefix stability
+
+### Data Plane
+- Traffic loss
+- Packet loss & latency
+- Reachability
+
+---
+
+## 🚨 Alert Severity Model
+
+| Severity | Meaning |
+|--------|--------|
+| SEV-1 | Customer traffic impact |
+| SEV-2 | Degraded redundancy |
+| SEV-3 | Informational |
+
+---
+
+## 🎯 Monitoring Goals
+- Fast detection
+- Low false positives
+- Clear operator signals
