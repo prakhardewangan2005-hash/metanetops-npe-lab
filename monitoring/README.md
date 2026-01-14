@@ -48,7 +48,7 @@ Grafana is exposed on port **3000**.
 - Click **Open in Browser** to get the live Grafana URL
 
 ### Local
-- Open http://localhost:3000
+- https://shiny-fortnight-wvg4x6p6px9c9p4q-3000.app.github.dev/?orgId=1
 
 **Default credentials**
 - Username: `admin`
