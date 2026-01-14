@@ -1,0 +1,11 @@
+apiVersion: 1
+
+providers:
+  - name: "metanetops"
+    orgId: 1
+    folder: "MetaNetOps"
+    type: file
+    disableDeletion: false
+    editable: true
+    options:
+      path: /etc/grafana/provisioning/dashboards
