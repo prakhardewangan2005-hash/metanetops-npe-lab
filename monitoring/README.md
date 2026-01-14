@@ -38,12 +38,19 @@ for network incidents before customer impact increases.
 
 Spin up a local/codespaces monitoring stack with a BGP health dashboard.
 
-```bash
-cd monitoring/stack
-docker compose up -d --build
-
 ## Access
 
-Grafana is exposed on port 3000 (Codespaces: via Forwarded Address in PORTS tab).
+Grafana is exposed on port **3000**.
 
-Default credentials: admin / admin
+### Codespaces
+- Open **PORTS** tab in the Codespaces bottom panel
+- Find port **3000 (grafana)**
+- Click **Open in Browser** to get the live Grafana URL
+
+### Local
+- Open http://localhost:3000
+
+**Default credentials**
+- Username: `admin`
+- Password: `admin`
+
