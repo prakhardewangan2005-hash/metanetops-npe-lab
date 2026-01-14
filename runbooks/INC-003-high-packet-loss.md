@@ -1,3 +1,25 @@
+> 🔧 **Linked Automation**
+>
+> This incident uses shared network triage automation before deeper investigation.
+>
+> **Run first:**
+> ```bash
+> bash automation/net_triage.sh
+> ```
+>
+> **Failure demo (DNS):**
+> ```bash
+> bash automation/net_triage.sh does-not-exist-xyz-12345.invalid 443
+> ```
+>
+> Expected:
+> - DNS / TCP / HTTPS baseline verified
+> - If this fails, stop and fix transport before proceeding
+>
+> Related index: `runbooks/INDEX.md`
+>
+> ---
+
 # High Packet Loss Incident Runbook
 
 ## Incident Description

@@ -58,6 +58,41 @@ and postmortem culture** for large-scale networks.
 - SRE (Networking)
 - Infrastructure Operations
 
+## 🔧 Working Automation
+
+This repository includes **runnable, production-style automation** designed for
+Network Production Engineering (NPE) workflows.
+
+### Network Incident Triage
+Baseline checks to quickly validate transport and application reachability.
+
+```bash
+bash automation/net_triage.sh
+
+
+## 🧾 Postmortem Auto-Generation
+
+Incidents can generate a **structured markdown postmortem** automatically using
+automation outputs and runbook references.
+
+### Generate a postmortem
+```bash
+bash postmortems/generate_postmortem.sh INC-003 runbooks/INC-003-high-packet-loss.md
+
+## 🚀 Quick Start
+
+```bash
+# Run baseline triage
+bash automation/net_triage.sh
+
+# Simulate a failure
+bash automation/net_triage.sh does-not-exist-xyz-12345.invalid 443
+
+# Generate a postmortem
+bash postmortems/generate_postmortem.sh INC-001 runbooks/INC-001-bgp-session-drop.md
+
+
+
 ---
 
 ## 📎 Disclaimer

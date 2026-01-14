@@ -1,3 +1,25 @@
+> 🔧 **Linked Automation**
+>
+> This incident uses shared network triage automation before deep BGP debugging.
+>
+> **Run first:**
+> ```bash
+> bash automation/net_triage.sh
+> ```
+>
+> **Failure demo (DNS):**
+> ```bash
+> bash automation/net_triage.sh does-not-exist-xyz-12345.invalid 443
+> ```
+>
+> Expected:
+> - DNS / TCP / HTTPS baseline verified
+> - If this fails, stop and fix transport before BGP actions
+>
+> Related index: `runbooks/INDEX.md`
+>
+> ---
+
 # BGP Session Flap / Neighbor Down Runbook
 
 ---
