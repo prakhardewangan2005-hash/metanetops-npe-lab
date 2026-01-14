@@ -33,3 +33,17 @@ for network incidents before customer impact increases.
 - Fast detection
 - Low false positives
 - Clear operator signals
+
+## 📈 Live Monitoring (Prometheus + Grafana)
+
+Spin up a local/codespaces monitoring stack with a BGP health dashboard.
+
+```bash
+cd monitoring/stack
+docker compose up -d --build
+
+## Access
+
+Grafana is exposed on port 3000 (Codespaces: via Forwarded Address in PORTS tab).
+
+Default credentials: admin / admin

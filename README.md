@@ -121,3 +121,15 @@ DNS, TCP connectivity, and HTTPS reachability from a containerized environment
 ```bash
 bash automation/net_triage.sh
 
+## Live Monitoring (Prometheus + Grafana)
+
+This repository includes a fully working monitoring stack:
+
+- Prometheus (metrics collection)
+- Custom BGP exporter
+- Grafana (pre-provisioned dashboards)
+
+### Run locally / in Codespaces
+```bash
+cd monitoring/stack
+docker compose up -d
