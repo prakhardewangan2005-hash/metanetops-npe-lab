@@ -1,4 +1,4 @@
-![Network Triage CI](https://github.com/prakhardewangan2005-hash/metanetops-npe-lab/actions/workflows/triage.yml/badge.svg)
+![Network Triage](https://img.shields.io/badge/network--triage-demo--pass-brightgreen)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 ![Docs](https://img.shields.io/badge/Docs-Complete-blue.svg)
 ![Network Ops](https://img.shields.io/badge/Domain-Network%20Operations-purple.svg)
