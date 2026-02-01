@@ -1,48 +1,8 @@
-=== Net Triage Report ===
-Time: Sun Feb  1 05:03:21 PM UTC 2026
-Target: google.com:443
-
-[1/4] DNS Lookup
-Server:		10.0.2.3
-Address:	10.0.2.3#53
-
-Non-authoritative answer:
-Name:	google.com
-Address: 142.250.138.100
-Name:	google.com
-Address: 142.250.138.102
-Name:	google.com
-Address: 142.250.138.113
-Name:	google.com
-Address: 142.250.138.139
-Name:	google.com
-Address: 142.250.138.138
-Name:	google.com
-Address: 142.250.138.101
-Name:	google.com
-Address: 2607:f8b0:4023:1000::66
-Name:	google.com
-Address: 2607:f8b0:4023:1000::71
-Name:	google.com
-Address: 2607:f8b0:4023:1000::64
-Name:	google.com
-Address: 2607:f8b0:4023:1000::65
-
-✅ DNS OK
-
-[2/4] TCP Connect Test
-✅ TCP OK
-
-[3/4] HTTPS GET (Application-level)
-<HTML><HEAD><meta http-equiv="content-type" content="text/html;charset=utf-8">
-<TITLE>301 Moved</TITLE></HEAD><BODY>
-<H1>301 Moved</H1>
-The document has moved
-<A HREF="https://www.google.com/get">here</A>.
-</BODY></HTML>
-✅ HTTPS OK
-
-[4/4] Docker Egress Summary
-- ICMP (ping) may be blocked in Codespaces; prefer DNS/TCP/HTTP checks.
-
-=== Result: PASS ✅ ===
+{"ts":"2026-02-01T17:13:44Z","request_id":"99da12fa87a819e5","step":"dns_lookup","status":"info","message":,"extra":{}}}
+{"ts":"2026-02-01T17:13:44Z","request_id":"99da12fa87a819e5","step":"dns_lookup","status":"pass","message":,"extra":{"target":"google.com","runs":9,"latency_ms":{"p50":,"p95":}}}}}}
+{"ts":"2026-02-01T17:13:44Z","request_id":"99da12fa87a819e5","step":"tcp_connect","status":"info","message":,"extra":{}}}
+{"ts":"2026-02-01T17:13:44Z","request_id":"99da12fa87a819e5","step":"tcp_connect","status":"pass","message":,"extra":{"target":"google.com","port":443,"latency_ms":4}}}}}
+{"ts":"2026-02-01T17:13:44Z","request_id":"99da12fa87a819e5","step":"https_check","status":"info","message":,"extra":{}}}
+{"ts":"2026-02-01T17:13:45Z","request_id":"99da12fa87a819e5","step":"https_check","status":"pass","message":,"extra":{"url":"https://google.com:443/","runs":9,"latency_ms":{"p50":,"p95":}}}}}}
+{"ts":"2026-02-01T17:13:45Z","request_id":"99da12fa87a819e5","step":"egress_summary","status":"pass","message":,"extra":{"note":"ICMP may be blocked; prefer DNS/TCP/HTTP checks."}}}}
+{"ts":"2026-02-01T17:13:45Z","request_id":"99da12fa87a819e5","result":"PASS","target":"google.com","port":443,"runs":9,"latency_ms":{"dns":{"p50":,"p95":},"https":{"p50":,"p95":},"tcp_connect":4}}

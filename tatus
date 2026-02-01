@@ -1,0 +1,5 @@
+[33m9b5b656[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m feat(npe-triage): add JSON logs, p50/p95 latency metrics, and demo mode
+[33mf2666d9[m Update net_triage.sh
+[33m38aea03[m Update globals.css
+[33mc75d52c[m Update layout.tsx
+[33md3b32e6[m Update package.json
