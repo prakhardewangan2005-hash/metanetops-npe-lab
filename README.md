@@ -6,6 +6,33 @@ Production-grade Network Operations, Incident Triage & Reliability Automation
 ![Docs](https://img.shields.io/badge/Docs-Complete-blue.svg)
 ![Network Ops](https://img.shields.io/badge/Domain-Network%20Operations-purple.svg)
 
+## 🚀 Quick Demo (1-Command, Codespaces-ready)
+
+This repository includes a **deterministic, safe demo** that can be executed directly inside **GitHub Codespaces** — no external DNS, cloud account, or infrastructure required.
+
+### Run the demo
+```bash
+bash automation/net_triage.sh demo --json | tee triage_run.ndjson
+```
+
+### What you’ll see
+- Terminal summary of DNS / TCP / HTTPS checks
+- Structured **NDJSON output** suitable for logs ingestion
+- Deterministic latency metrics (**p50 / p95**)
+
+### Verify output
+```bash
+tail -n 5 triage_run.ndjson
+```
+
+**Expected result**
+- Command exits successfully
+- `triage_run.ndjson` file is generated
+- Output shows deterministic checks and latency metrics
+
+This demo is intentionally designed so a **recruiter or hiring manager can open Codespaces, run one command, and immediately understand the system behavior.**
+
+
 Production-grade Network Operations & Reliability workflows inspired by real-world Network Production Engineer (NPE) environments.
 
 This repository demonstrates incident response, automation, monitoring, and postmortem culture for large-scale networks.
@@ -68,18 +95,6 @@ This repository includes runnable, production-style automation designed for Netw
 Baseline checks to quickly validate transport and application reachability.
 
 bash automation/net_triage.sh
-
----
-
-## 🚀 Quick Demo (Safe / No External DNS)
-
-One-command deterministic demo for recruiters, engineers, or hiring managers.
-
-bash automation/net_triage.sh demo --json | tee triage_run.ndjson
-
-Verify output file:
-
-tail -n 5 triage_run.ndjson
 
 ---
 
